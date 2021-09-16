@@ -26,7 +26,7 @@ function titleFromThumb(thumbnail) {
     'use strict';
     return thumbnail.getAttribute('data-image-title');
 }
-   
+
 function setDetailsFromThumb(thumbnail) {
     'use strict';
     setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail));
@@ -34,7 +34,7 @@ function setDetailsFromThumb(thumbnail) {
 
 function addThumbClickHandler(thumb) {
     'use strict';
-    thumb.addEventListener('click', function(event) {
+    thumb.addEventListener('click', function (event) {
         event.preventDefault();
         setDetailsFromThumb(thumb);
         showDetails();
@@ -66,7 +66,7 @@ function showDetails() {
 
 function addKeyPressHandler() {
     'use strict'
-    document.body.addEventListener('keyup', function(event) {
+    document.body.addEventListener('keyup', function (event) {
         event.preventDefault();
         console.log(event.keyCode);
         if (event.keyCode === ESC_KEY) {
@@ -74,7 +74,7 @@ function addKeyPressHandler() {
         }
     });
 }
-   
+
 
 function initializeEvents() {
     'use strict';
