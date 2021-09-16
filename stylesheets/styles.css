@@ -35,6 +35,31 @@ body {
 
 a {
     text-decoration: none;
+    
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 40px;
+    
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    
+}
+
+.next {
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 40px;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    
 }
 
 .main-header {
