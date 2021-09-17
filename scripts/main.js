@@ -111,12 +111,17 @@ function nextButton() {
     var COUNTER = OTTERS_ARRAY.indexOf(document.getElementById('detail-image').src);
     if (COUNTER > OTTERS_ARRAY.length) {
         COUNTER = 0;
+        
     } else {
         //increment
         COUNTER++;
+        if (COUNTER === OTTERS_ARRAY.length) {
+            alert("End of thumbnails!");
+        }
     }
     //click and execute
     thumbnailArray[COUNTER].click();
+    
 }
 
 
