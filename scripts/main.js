@@ -65,7 +65,7 @@ function showDetails() {
 }
 
 function addKeyPressHandler() {
-    'use strict'
+    'use strict';
     document.body.addEventListener('keyup', function (event) {
         event.preventDefault();
         console.log(event.keyCode);
@@ -75,12 +75,69 @@ function addKeyPressHandler() {
     });
 }
 
+//retrieves URL array
+function getOttersArray() {
+    'use strict';
+    var OTTERS_ARRAY = getThumbnailsArray();
+    for (var i = 0; i < OTTERS_ARRAY.length; i++) {
+        OTTERS_ARRAY[i] = OTTERS_ARRAY[i].href;
+    }
+    return OTTERS_ARRAY;
+}
+
+
+function previousButton() {
+    'use strict';
+    var OTTERS_ARRAY = getOttersArray();
+    var thumbnailArray = getThumbnailsArray();
+    //retrieve element and store it in COUNTER as an index num
+    var COUNTER = OTTERS_ARRAY.indexOf(document.getElementById('detail-image').src);
+    if (COUNTER == 0) {
+        COUNTER = OTTERS_ARRAY.length - 1;
+    } else {
+        //increment
+        COUNTER--;
+    }
+
+    //click and execute
+    thumbnailArray[COUNTER].click();
+}
+
+function nextButton() {
+    'use strict';
+    var OTTERS_ARRAY = getOttersArray();
+    var thumbnailArray = getThumbnailsArray();
+    //retrieve element and store it in COUNTER as an index num
+    var COUNTER = OTTERS_ARRAY.indexOf(document.getElementById('detail-image').src);
+    //max item
+    if (COUNTER == 6) {
+        COUNTER = 0;
+    } else {
+        //increment
+        COUNTER++;
+    }
+    //click and execute
+    thumbnailArray[COUNTER].click();
+}
+
 
 function initializeEvents() {
     'use strict';
     var thumbnails = getThumbnailsArray();
     thumbnails.forEach(addThumbClickHandler);
     addKeyPressHandler();
+
+    //when clicking on previous button, call previous button function
+    document.getElementById('previous').addEventListener('click', function (event) {
+        event.preventDefault();
+        previousButton();
+    });
+
+    //when clicking on next button, call next button function
+    document.getElementById('next').addEventListener('click', function (event) {
+        event.preventDefault();
+        nextButton();
+    });
 }
 
 initializeEvents();
