@@ -90,9 +90,9 @@ function previousButton() {
     'use strict';
     var OTTERS_ARRAY = getOttersArray();
     var thumbnailArray = getThumbnailsArray();
-    //retrieve element and store it in COUNTER as an index num
+    //retrieve element and store it in COUNTER index
     var COUNTER = OTTERS_ARRAY.indexOf(document.getElementById('detail-image').src);
-    if (COUNTER == 0) {
+    if (COUNTER === 0) {
         COUNTER = OTTERS_ARRAY.length - 1;
     } else {
         //increment
@@ -107,10 +107,9 @@ function nextButton() {
     'use strict';
     var OTTERS_ARRAY = getOttersArray();
     var thumbnailArray = getThumbnailsArray();
-    //retrieve element and store it in COUNTER as an index num
+    //retrieve element and store it in COUNTER index
     var COUNTER = OTTERS_ARRAY.indexOf(document.getElementById('detail-image').src);
-    //max item
-    if (COUNTER == 6) {
+    if (COUNTER > OTTERS_ARRAY.length) {
         COUNTER = 0;
     } else {
         //increment
